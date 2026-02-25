@@ -1,0 +1,80 @@
+#matrix {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1; 
+    background-color: black;
+}
+
+.hero {
+    height: 100vh;
+    width: 100%;
+    background: transparent; 
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 5%;
+}
+
+#home::before {
+    display: none; 
+}
+
+section {
+    background: transparent !important;
+}
+.navbar {
+    list-style: none;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    gap: 20px;               
+    margin: 0;
+    padding: 0;
+    white-space: nowrap;     
+}
+
+.navbar li {
+    display: inline-block;
+}
+nav {
+    padding: 15px 0;
+    position: relative;
+    width: 100%;             /* Give it full width to spread out */
+    display: flex;
+    justify-content: flex-start; /* Aligns menu to the left like your image */
+    z-index: 1000;
+}
+.hero-content {
+    width: 100%;
+    max-width: 1200px; /* Limits width so it doesn't stretch too far on huge monitors */
+}
+.icon-circle {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1); /* Light circle background */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+    text-decoration: none;
+}
+
+.icon-circle:hover {
+    background: rgba(0, 140, 255, 0.3); /* Glow blue on hover */
+}
+
+/* This makes the black SVG icons turn white so they show up on your dark background */
+.social-img {
+    filter: brightness(0) invert(1);
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
