@@ -140,7 +140,10 @@ nav {
 }
 
 .icon-circle:hover {
-    background: rgba(0, 140, 255, 0.3); 
+    background: #2ecc71 !important;
+    transform: translateY(-8px);
+    box-shadow: 0 0 20px rgba(46, 204, 113, 0.6);
+    border-color: #2ecc71;
 }
 
 .social-img {
@@ -178,7 +181,12 @@ nav {
     transform: translateY(-5px);
     box-shadow: 0 0 15px rgba(0, 140, 255, 0.8); 
     border-color: #008CFF;
-
+}
+.icon-circle:hover img {
+    filter: brightness(0) !important;
+}
+.icon-circle:hover i{
+    color: #05162a !important;
 }
 .cv-section {
     padding: 20px 5% 80px 5%;
