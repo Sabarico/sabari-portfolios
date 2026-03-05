@@ -1,13 +1,24 @@
+body {
+    overflow-y: auto;
+    overflow-x: hidden;
+    background-color: #05162a !important;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 #matrix {
+    display: none;
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
     z-index: -1; 
+}
+.home-page #matrix {
+    display: block;
     background-color: black;
 }
-
 .hero {
     height: 100vh;
     width: 100%;
@@ -16,7 +27,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding-left: 5%;
+    padding-left: 10%;
     z-index: 10;
 }
 .hero-content {
@@ -27,20 +38,41 @@
     display: none; 
 }
 .name {
-    color: #ffffff;
+    color: #f5c97a;
     font-size: 3.5rem; 
     position: relative;
     z-index: 10;
     margin-bottom: 10px;
+    text-shadow: 0 0 10px rgba(245, 201, 122, 0.5); 
+    text-transform: uppercase;
 }
 .typing-container {
-    color: #ffffff; /* Makes "I am" white */
+    display: flex;
+    align-items: center;
+    color: #ffffff; 
     font-size: 1.5rem;
     font-weight: bold;
     z-index: 10;
+    gap: 10px;
     position: relative;
     margin-bottom: 30px;
 }
+.typing{
+    color: #2ecc71 !important;
+    min-width: 2px;
+    text-shadow: 0 0 10px rgba(18, 214, 64, 0.8), 0 0 20px rgba(18, 214, 64, 0.4) !important;
+}
+.typing::after{
+    content: "|";
+    color: #2ecc71!important;
+   animation: blink 0.7s infinite;
+    margin-left: 2px;
+}
+
+@keyframes blink{
+    0%, 100%{opacity: 1;}
+        50% {opacity: 0;}
+    }
 
 section {
     background: transparent !important;
@@ -48,25 +80,19 @@ section {
 .navbar {
     list-style: none;
     display: flex;
-    justify-content: center; 
-    align-items: center;
-    gap: 20px;               
+    gap: 25px;               
     margin: 0;
     padding: 0;
-    white-space: nowrap;   
-}
+   }
 
 .navbar li {
     display: inline-block;
 }
 nav {
-    padding: 15px 0;
-    position: relative;
-    width: 100%;             
+    padding: 0;            
     display: flex;
     justify-content: flex-start; 
-    text-decoration: none;
-    z-index: 1000;
+    margin-top: 10px;
 }
 .navbar li a {
     color: white;
@@ -78,8 +104,17 @@ nav {
 }
 
 .highlight {
-    color: #00ff88;
-    border-bottom: none !important; 
+    color: #00ff88!important;
+    position: relative;
+}
+.highlight::after{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: #f5c97a;
+    bottom: -5px;
+    left: 0;
 }
 
 .navbar li a:hover {
@@ -100,6 +135,8 @@ nav {
     justify-content: center;
     transition: 0.3s;
     text-decoration: none;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .icon-circle:hover {
@@ -111,7 +148,183 @@ nav {
 }
 
 .social-icons {
+    margin-top: 40px;
     display: flex;
+    justify-content: flex-start;
     gap: 15px;
     align-items: center;
+    position: relative;
+    z-index: 100;
+}
+.icon-circle i {
+    color: #ffffff;
+    font-size: 20px;
+    opacity: 1 !important; 
+}
+.icon-circle img {
+    filter: brightness(0) invert(1); 
+    display: block;
+    transition: all 0.3s ease;
+    opacity: 1 !important; 
+}
+.social-img {
+    filter: brightness(0) invert(1); 
+    width: 22px;
+    height: 22px;
+}
+
+.icon-circle:hover {
+    background: rgba(0, 140, 255, 0.4); 
+    transform: translateY(-5px);
+    box-shadow: 0 0 15px rgba(0, 140, 255, 0.8); 
+    border-color: #008CFF;
+
+}
+.cv-section {
+    padding: 20px 5% 80px 5%;
+    position: relative;
+    z-index: 10;
+}
+
+.cv-title-container {
+    margin-bottom: 50px;
+}
+
+.cv-header {
+    color: white;
+    font-size: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.white-line {
+    width: 100px;
+    height: 1px;
+    background-color: #ffffff; 
+    opacity: 0.6;
+    display: inline-block;
+}
+
+.cv-container {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.cv-card {
+    background: #0a192f;
+    padding: 50px 30px;
+    width: 320px;
+    text-align: center;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+  align-items: center;
+  min-height: 400px;
+}
+
+.cv-card:hover {
+    background: rgba(18, 214, 64, 0.05);
+    border-color: #12d640;
+    transform: translateY(-5px);
+}
+
+.cv-icon-box {
+   display: flex;
+   justify-content: center;
+   margin-bottom: 25px;
+}
+
+.cv-icon-box i {
+    color: #12d640;
+    font-size: 30px;
+}
+
+.cv-card h3 {
+    color: #12d640;
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+}
+
+.cv-card p {
+    color: white;
+    font-size: 1rem;
+    margin: 0;
+    line-height: 1.5;
+    min-height: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.cv-card a {
+    color: #12d640;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 5px;
+}
+
+.cv-card a:hover {
+    text-decoration: underline;
+}
+html {
+    scroll-behavior: smooth;
+}
+.cv-label {
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+    margin-bottom: 0;
+    display: inline-block;
+}
+.icon-stack {
+    background: #1d6e2e; 
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    position: relative;
+    box-shadow: -8px 8px 0px rgba(255, 255, 255, 0.1); 
+}
+.icon-stack i {
+    color: white !important;
+    font-size: 35px;
+}
+.cv-title-wrapper {
+    display: flex;
+    align-items: center;
+    gap:15px;
+    margin-bottom: 30px;
+    padding-left: 20px;
+}
+.main-header{
+    background: #0b1b2b;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 80px;
+    position: sticky;
+    top:0;
+    z-index: 1000;
+}
+.prefix{
+    color: #ffffff !important;
+}
+.logo{
+    font-size: 2.2rem;
+    font-weight: bold;
+    color: #f5c97a;
+    text-transform: uppercase;
+}
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
 }
